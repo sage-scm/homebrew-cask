@@ -1,0 +1,66 @@
+name: Test Formula
+
+on:
+  pull_request:
+    paths:
+      - 'Formula/*.rb'
+  push:
+    branches:
+      - main
+    paths:
+      - 'Formula/*.rb'
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Homebrew
+        run: |
+          brew update
+      
+      - name: Test tap
+        run: |
+          # Add this repository as a local tap
+          brew tap-new test/local --no-git
+          cp Formula/*.rb $(brew --repo)/Library/Taps/test/homebrew-local/Formula/
+      
+      - name: Test installation
+        run: |
+          brew install test/local/sage
+          sg --version
+      
+      - name: Test uninstallation
+        run: |
+          brew uninstall test/local/sage
+  
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Homebrew
+        run: |
+          # Install Homebrew on Linux
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $GITHUB_ENV
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew update
+      
+      - name: Test tap
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew tap-new test/local --no-git
+          cp Formula/*.rb $(brew --repo)/Library/Taps/test/homebrew-local/Formula/
+      
+      - name: Test installation
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install test/local/sage
+          sg --version
+      
+      - name: Test uninstallation
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew uninstall test/local/sage

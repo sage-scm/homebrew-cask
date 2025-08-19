@@ -20,7 +20,7 @@ Sage is a Git workflow tool written in Rust that simplifies complex Git operatio
 
 ## Formula
 
-The formula builds Sage from source using Cargo (Rust's package manager).
+The formula downloads pre-built binaries for your platform (macOS/Linux, Intel/ARM) directly from GitHub releases. No Rust installation or compilation required!
 
 ## License
 

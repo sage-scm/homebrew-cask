@@ -1,34 +1,26 @@
 class Sage < Formula
-  desc "Git workflow tool that simplifies complex Git operations"
+  desc "🌿 Sage — A Git workflow tool for managing branches and commits"
   homepage "https://github.com/sage-scm/sage"
-  version "0.1.1"
+  version "2025.10.2002"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-macos-amd64.tar.gz"
-      sha256 "31ce984078061d4e3144e312c32018cba050914cca7a72d9838932f75aa56b0d"
-    end
-
-    on_arm do
-      url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-macos-arm64.tar.gz"
-      sha256 "cb245deb0eb2eefde09f453362dcf56f2f42171e35f468486fd2b371283282fa"
+    if Hardware::CPU.intel?
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.2002/sg-macos-amd64.tar.gz"
+      sha256 "09c87adcee11d67eaf8fcc711e080bfba127ac6ff2124aedf961c00637cce2e5"
+    else
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.2002/sg-macos-arm64.tar.gz"
+      sha256 "032b8ffc4c6d7d25f185ef619ec01d4eba231e1c9208d04e8fcbb73b81aaf808"
     end
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-linux-amd64.tar.gz"
-        sha256 "3aa0244f82b8a1ed28e38a799f0b5793e3a41aa017e900904ca75926749bdce4"
-      end
-    end
-
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-linux-arm64.tar.gz"
-        sha256 "6cfc7d3a4e058a9e2d2568dee0a469db78f79ed9631542d8c692805dc1ba9c26"
-      end
+    if Hardware::CPU.intel?
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.2002/sg-linux-amd64.tar.gz"
+      sha256 "86a6c5463bcbd8a4c5782915bf6bdf600c9704156ec9140323ca814103dea715"
+    else
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.2002/sg-linux-arm64.tar.gz"
+      sha256 "806d0697ce3edf7a56616faffebea16cf483caeb07674f90edd2b4f7674f2bcc"
     end
   end
 

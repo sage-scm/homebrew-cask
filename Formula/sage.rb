@@ -1,34 +1,26 @@
 class Sage < Formula
-  desc "Git workflow tool that simplifies complex Git operations"
+  desc "🌿 Sage — A Git workflow tool for managing branches and commits"
   homepage "https://github.com/sage-scm/sage"
-  version "0.1.1"
+  version "2025.10.14"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-macos-amd64.tar.gz"
-      sha256 "31ce984078061d4e3144e312c32018cba050914cca7a72d9838932f75aa56b0d"
-    end
-
-    on_arm do
-      url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-macos-arm64.tar.gz"
-      sha256 "cb245deb0eb2eefde09f453362dcf56f2f42171e35f468486fd2b371283282fa"
+    if Hardware::CPU.intel?
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.14/sg-macos-amd64.tar.gz"
+      sha256 "6b3bb2024f3b4541a21bd0ff90c70aee3bb142f857e73476b0e25c87d7d083e1"
+    else
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.14/sg-macos-arm64.tar.gz"
+      sha256 "ba3701a83a23cc4d86e2bb733372c187e89fb88fdbadb462260bfc32faeb99a6"
     end
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-linux-amd64.tar.gz"
-        sha256 "3aa0244f82b8a1ed28e38a799f0b5793e3a41aa017e900904ca75926749bdce4"
-      end
-    end
-
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sage-scm/sage/releases/download/v#{version}/sg-linux-arm64.tar.gz"
-        sha256 "6cfc7d3a4e058a9e2d2568dee0a469db78f79ed9631542d8c692805dc1ba9c26"
-      end
+    if Hardware::CPU.intel?
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.14/sg-linux-amd64.tar.gz"
+      sha256 "b8f45c78a4fca65f4a61e81b834564f09bbde9df0be27c658eb14f74bd597494"
+    else
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.14/sg-linux-arm64.tar.gz"
+      sha256 "23cae1601dbf3225005e945c536f5ec48ffb69d7000638bc2ab39c34d503aec6"
     end
   end
 

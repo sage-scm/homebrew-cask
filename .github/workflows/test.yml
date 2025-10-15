@@ -44,7 +44,6 @@ jobs:
         run: |
           # Install Homebrew on Linux
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $GITHUB_ENV
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew update
       

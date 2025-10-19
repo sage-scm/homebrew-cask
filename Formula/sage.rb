@@ -1,26 +1,26 @@
 class Sage < Formula
   desc "🌿 Sage — A Git workflow tool for managing branches and commits"
   homepage "https://github.com/sage-scm/sage"
-  version "2025.10.16"
+  version "2025.10.19"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sage-scm/sage/releases/download/2025.10.16/sg-macos-amd64.tar.gz"
-      sha256 "fbb71b09e43a4c07d4ccaadac853bdd60e7100ea2c0184ec3b2f64a3e28b8fd5"
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.19/sg-macos-amd64.tar.gz"
+      sha256 "8ff37e90c730a3e36ed375c597d37c51170c1f5ac5f9a6d28d6167916a0edbda"
     else
-      url "https://github.com/sage-scm/sage/releases/download/2025.10.16/sg-macos-arm64.tar.gz"
-      sha256 "638a9350e465cd0a48d87e132caf802f89af0dcdbbac838205b87ed337421d4f"
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.19/sg-macos-arm64.tar.gz"
+      sha256 "a5d66750780e9cf729272c1101863a81b042420d418ed6fa53dd3d444af40263"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/sage-scm/sage/releases/download/2025.10.16/sg-linux-amd64.tar.gz"
-      sha256 "085be5f4867e595bf767dedd2054cf0836b68f26191fd81027cad44ca0a23233"
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.19/sg-linux-amd64.tar.gz"
+      sha256 "a8c47a7de6ad5865f7fe70ce3f820518bb9560c5be72122c8374e3cd01b65d6a"
     else
-      url "https://github.com/sage-scm/sage/releases/download/2025.10.16/sg-linux-arm64.tar.gz"
-      sha256 "0de9be295aea11b30b1e76153416461bd1fccdf666bc1040144ab5fb3a4c4c75"
+      url "https://github.com/sage-scm/sage/releases/download/2025.10.19/sg-linux-arm64.tar.gz"
+      sha256 "9156a02221fde602a890bc3901d2f0caa5b3820e137a2f6547f680a8ecc4d93f"
     end
   end
 
